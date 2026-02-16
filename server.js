@@ -89,3 +89,11 @@ process.on('unhandledRejection', (err, promise) => {
     // Close server & exit process
     server.close(() => process.exit(1));
 });
+db.query('SELECT 1')
+    .then(() => {
+        console.log('MySQL Connected');
+    })
+    .catch((err) => {
+        console.error('Database connection failed:', err);
+        process.exit(1);
+    });
